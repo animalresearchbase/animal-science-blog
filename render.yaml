@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: animal-science-blog
+    env: node
+    buildCommand: |
+      cd backend && npm install
+      cd ../frontend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
